@@ -12,5 +12,7 @@ class Rectangulo():
 
 #Probamos creando un objeto Rectangulo, agregandole valores a su base y altura...
 rectangulo1 = Rectangulo(1,2)
+
 # y luego hacemos que calcule el area y que imprima el resultado.
 print(rectangulo1.calc_area())
+
