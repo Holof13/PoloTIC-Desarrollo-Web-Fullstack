@@ -31,7 +31,11 @@ class Minibus(Vehículo):
     # Este metodo nos devuelve la resta entre la cantidad total de asientos y la cantidad de pasajeros en la lista.
     def disponibilidad(self):
         return self.asientos - len(self.pasajeros)
-   
+
+    # Este metodo agrega todos los nombres de los pasajeros a una lista, y devuelve esta misma.
+    def lista(self):
+        return [str(pasajero) for pasajero in self.pasajeros]
+
     # Este metodo toma de atributo un objeto pasajero.
     def subir_pasajero(self, pasajero : Pasajero):
         # Primero checkeamos si el pasajero ya esta en el minibus.
@@ -49,17 +53,19 @@ class Minibus(Vehículo):
 
 #### TEST ####
 # Generamos una lista de pasajeros
-lista = ['Agustin', 'Pichi', 'Ricky', 'Vara', 'Nico']
+ejemplos = ['Agustin', 'Pichi', 'Ricky', 'Vara', 'Nico']
 # y un objeto minibus
 minibus1 = Minibus(1)
 # el cual tiene una capacidad máxima de 4 para hacer el ejemplo mas simple, en realidad tendria que ser 50.
 minibus1.capacidad(4)
 
 # Por cada potencial pasajero en la lista...
-for nombre in lista:
+for nombre in ejemplos:
     # mostramos la capacidad disponible...
     print(f'Disponibilidad: {minibus1.disponibilidad()}')
     # sobreescribimos el nombre del pasajero, por un objeto Pasajero con el mismo nombre como atributo...
     nombre = Pasajero(nombre)
     # y por último tratamos de subir a este al minibus.
     minibus1.subir_pasajero(nombre)
+
+print(minibus1.lista())
